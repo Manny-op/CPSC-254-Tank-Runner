@@ -1,29 +1,16 @@
-import pygame
+#! /usr/bin/env python3
 
-#   set background color 
-background_color = (156, 167, 184)
-#   create a screen size and name the window
-screen = pygame.display.set_mode((800,600))
-pygame.display.set_caption("Tank Runner")
 
-#   fill the background with the background color
-screen.fill(background_color)
+"""The Tank Runner executable."""
 
-pygame.init()
+from tankrunner.game import TankRunner
 
-#   update the game using the flip function
 
-pygame.display.flip()
+def main():
+    """This function will runn the Tank Runner game."""
+    game = TankRunner()
+    return game.run()
 
-#   variable to keep track of the game state being running
 
-running = True
-# game loop
-while running:
-    
-# for loop through the event queue  
-    for event in pygame.event.get():
-      
-        # Check for QUIT event      
-        if event.type == pygame.QUIT:
-            running = False
+if __name__ == '__main__':
+    main()
