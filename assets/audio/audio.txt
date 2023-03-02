@@ -1,0 +1,4 @@
+The assets/audio folders will be used to store any sound effects, soundtrack, 
+or any other audio related files.
+
+** This text file will be removed once audio files are added. **
