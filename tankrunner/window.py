@@ -35,8 +35,10 @@ class Window:
 
     def handle_event(self, event):
         """Trigger to move to next Window."""
-        if event.type == pygame.KEYDOWN and \
-            event.key == pygame.K_ESCAPE:
+        if event.type == pygame.QUIT:
+            self._valid = False
+        elif event.type == pygame.KEYDOWN and \
+            event.key == pygame.K_SPACE:
             self._valid = False
 
 
