@@ -1,6 +1,7 @@
 """This file contains the Window class and its subclasses.These classes build the Windows of the game."""
 
 import pygame
+from time import sleep
 
 
 class Window:
@@ -38,7 +39,7 @@ class Window:
         if event.type == pygame.QUIT:
             self._valid = False
         elif event.type == pygame.KEYDOWN and \
-            event.key == pygame.K_SPACE:
+            event.key == pygame.K_ESCAPE:
             self._valid = False
 
 
@@ -68,14 +69,26 @@ class WindowGame(Window):
         """Intialize WindowGame."""
         super().__init__(window)
         self._score = 0
-        
-        
+
     def draw(self):
         """Draw the game Window."""
         super().draw()
         font = pygame.font.get_default_font()
         score_font = pygame.font.Font(font, 20)
         render_score = score_font.render(str(self._score), True, (0, 0, 0))
-        positon = (775, 25)
+        positon = (750, 25)
+        self._window.blit(render_score, positon)
+        floor = pygame.draw.line(self._window, (0, 0, 0), [0, 500], [800, 500], width=5)
+
+    def change_score(self):
+        """Update the scoreboard."""
+        self._score += 1
+        font = pygame.font.get_default_font()
+        score_font = pygame.font.Font(font, 20)
+        render_score = score_font.render(str(self._score), True, (0, 0, 0))
+        positon = (750, 25)
         self._window.blit(render_score, positon)
 
+    def update(self):
+        """Update the game Window."""
+        pass
