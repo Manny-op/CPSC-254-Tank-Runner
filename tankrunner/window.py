@@ -59,3 +59,16 @@ class WindowTitle(Window):
         render_window = window_font.render(self._game_title, True, (0, 0, 0))
         position = render_window.get_rect(center=(width/2, 100))
         self._window.blit(render_window, position)
+
+
+class WindowGame(Window):
+    """A subclass of Window that represents the game Window of TankRunner."""
+
+    def __init__(self, window):
+        """Intialize WindowGame."""
+        super().__init__(window)
+        
+    def draw(self):
+        """Draw the game Window."""
+        return super().draw()
+    
