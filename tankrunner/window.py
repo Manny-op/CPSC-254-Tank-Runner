@@ -67,8 +67,15 @@ class WindowGame(Window):
     def __init__(self, window):
         """Intialize WindowGame."""
         super().__init__(window)
+        self._score = 0
+        
         
     def draw(self):
         """Draw the game Window."""
-        return super().draw()
-    
+        super().draw()
+        font = pygame.font.get_default_font()
+        score_font = pygame.font.Font(font, 20)
+        render_score = score_font.render(str(self._score), True, (0, 0, 0))
+        positon = (775, 25)
+        self._window.blit(render_score, positon)
+
