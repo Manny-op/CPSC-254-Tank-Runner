@@ -11,8 +11,8 @@ class Tank():
         self._surface = surface
         self._color = (255, 255, 255)
         self._tank = pygame.Rect(100, 495, 80, 8)
-        self._x_postion = self._tank.x
-        self._y_positon = self._tank.y
+        self._tank_x_postion = self._tank.x
+        self._tank_y_positon = self._tank.y
 
     def draw(self):
         """Draw the Tank."""
@@ -23,5 +23,5 @@ class Tank():
         key = pygame.key.get_pressed()
         if key[pygame.K_SPACE]:
             self._tank.y -= 2
-        elif self._tank.y != self._y_positon:
+        elif self._tank.y != self._tank_y_positon:
             self._tank.y += 2
