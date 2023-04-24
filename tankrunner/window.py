@@ -1,6 +1,7 @@
 """This file contains the Window class and its subclasses.These classes build the Windows of the game."""
 
 import pygame
+from time import sleep
 
 
 class Window:
@@ -35,7 +36,9 @@ class Window:
 
     def handle_event(self, event):
         """Trigger to move to next Window."""
-        if event.type == pygame.KEYDOWN and \
+        if event.type == pygame.QUIT:
+            self._valid = False
+        elif event.type == pygame.KEYDOWN and \
             event.key == pygame.K_ESCAPE:
             self._valid = False
 
@@ -57,3 +60,35 @@ class WindowTitle(Window):
         render_window = window_font.render(self._game_title, True, (0, 0, 0))
         position = render_window.get_rect(center=(width/2, 100))
         self._window.blit(render_window, position)
+
+
+class WindowGame(Window):
+    """A subclass of Window that represents the game Window of TankRunner."""
+
+    def __init__(self, window):
+        """Intialize WindowGame."""
+        super().__init__(window)
+        self._score = 0
+
+    def draw(self):
+        """Draw the game Window."""
+        super().draw()
+        font = pygame.font.get_default_font()
+        score_font = pygame.font.Font(font, 20)
+        render_score = score_font.render(str(self._score), True, (0, 0, 0))
+        positon = (750, 25)
+        self._window.blit(render_score, positon)
+        floor = pygame.draw.line(self._window, (0, 0, 0), [0, 500], [800, 500], width=5)
+
+    def change_score(self):
+        """Update the scoreboard."""
+        self._score += 1
+        font = pygame.font.get_default_font()
+        score_font = pygame.font.Font(font, 20)
+        render_score = score_font.render(str(self._score), True, (0, 0, 0))
+        positon = (750, 25)
+        self._window.blit(render_score, positon)
+
+    def update(self):
+        """Update the game Window."""
+        pass
