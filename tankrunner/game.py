@@ -17,7 +17,9 @@ class TankRunner:
         self._title = window_title
         pygame.display.set_caption(self._title)
         self._game_over = False
-        self._windows = [WindowTitle("Tank Runner", self._window), WindowGame(self._window)]
+        self._windows = [ 
+                        WindowTitle("Tank Runner", self._window),
+                        WindowGame(self._window)]
 
     def run(self):
         """A loop that runs the game."""
