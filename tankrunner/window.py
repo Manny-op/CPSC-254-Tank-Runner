@@ -1,7 +1,7 @@
 """This file contains the Window class and its subclasses.These classes build the Windows of the game."""
 
 import pygame
-from time import sleep
+from tankrunner.tank import Tank
 
 
 class Window:
@@ -69,6 +69,7 @@ class WindowGame(Window):
         """Intialize WindowGame."""
         super().__init__(window)
         self._score = 0
+        self._tank = Tank(self._window)
 
     def draw(self):
         """Draw the game Window."""
@@ -79,6 +80,8 @@ class WindowGame(Window):
         positon = (750, 25)
         self._window.blit(render_score, positon)
         floor = pygame.draw.line(self._window, (0, 0, 0), [0, 500], [800, 500], width=5)
+
+        self._tank.draw()
 
     def change_score(self):
         """Update the scoreboard."""
@@ -91,4 +94,4 @@ class WindowGame(Window):
 
     def update(self):
         """Update the game Window."""
-        pass
+        self._tank.move()
