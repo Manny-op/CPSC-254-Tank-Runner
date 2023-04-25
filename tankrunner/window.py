@@ -69,6 +69,7 @@ class WindowGame(Window):
         """Intialize WindowGame."""
         super().__init__(window)
         self._score = 0
+        self._game_over = False
         self._tank = Tank(self._window)
 
     def draw(self):
@@ -95,3 +96,5 @@ class WindowGame(Window):
     def update(self):
         """Update the game Window."""
         self._tank.move()
+        if self._game_over != True:
+            self.change_score()
