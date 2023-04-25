@@ -1,6 +1,7 @@
 import pygame
 import os
 import random
+import sys
 pygame.init()
 
 # Global Constants
@@ -200,8 +201,12 @@ def main():
 
     while run:
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
+            # quit game after escape key is pressed
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:    # escape key quits the program
+                    run = False
+                    pygame.quit()
+                    sys.exit()
 
         SCREEN.fill((255, 255, 255))
         userInput = pygame.key.get_pressed()
