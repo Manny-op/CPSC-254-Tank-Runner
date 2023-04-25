@@ -22,6 +22,6 @@ class Tank():
         """Control the Tank movement."""
         key = pygame.key.get_pressed()
         if key[pygame.K_SPACE]:
-            self._tank.y -= 2
+            self._tank.y -= 5
         elif self._tank.y != self._tank_y_positon:
-            self._tank.y += 2
+            self._tank.y += 5
