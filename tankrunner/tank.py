@@ -10,7 +10,7 @@ class Tank():
         """Initialize the Tank."""
         self._surface = surface
         self._color = (255, 255, 255)
-        self._tank = pygame.Rect(100, 495, 80, 8)
+        self._tank = pygame.Rect(100, 495, 40, 8)
         self._tank_x_postion = self._tank.x
         self._tank_y_positon = self._tank.y
 
