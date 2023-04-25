@@ -1,4 +1,4 @@
 """The init file for the tankrunner module."""
 
 
-__all__ = ['game']
+__all__ = ['game', 'obstacle', 'tank', 'window']
