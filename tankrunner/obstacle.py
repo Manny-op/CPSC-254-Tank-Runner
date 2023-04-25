@@ -20,5 +20,5 @@ class Obstacle():
 
     def move(self):
         """Control the Obstacle movement."""
-        self._obstacle.x -= 2
+        self._obstacle.x -= 4
 
