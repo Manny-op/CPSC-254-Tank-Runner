@@ -22,13 +22,19 @@ LARGE_OBS = [pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus1.png")
                 pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus2.png")),
                 pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus3.png"))]
 
+SMALL_METEOR = [pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus1.png")),
+                pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus2.png")),
+                pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus3.png"))]
+LARGE_METEOR = [pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus1.png")),
+                pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus2.png")),
+                pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus3.png"))]
+
 BIRD = [pygame.image.load(os.path.join("Assets/Bird", "Bird1.png")),
         pygame.image.load(os.path.join("Assets/Bird", "Bird2.png"))]
 
 CLOUD = pygame.image.load(os.path.join("Assets/Other", "Cloud.png"))
 
 BG = pygame.image.load(os.path.join("Assets/Other", "Track.png"))
-
 
 class Tank:
     X_POS = 80
@@ -102,7 +108,6 @@ class Tank:
     def draw(self, SCREEN):
         SCREEN.blit(self.image, (self.tankRect.x, self.tankRect.y))
 
-
 class Cloud:
     def __init__(self):
         self.x = SCREEN_WIDTH + random.randint(800, 1000)
@@ -119,7 +124,7 @@ class Cloud:
     def draw(self, SCREEN):
         SCREEN.blit(self.image, (self.x, self.y))
 
-
+# Horizontal Obstacles
 class Obstacle:
     def __init__(self, image, type):
         self.image = image
@@ -135,20 +140,17 @@ class Obstacle:
     def draw(self, SCREEN):
         SCREEN.blit(self.image[self.type], self.rect)
 
-
 class SmallCactus(Obstacle):
     def __init__(self, image):
         self.type = random.randint(0, 2)
         super().__init__(image, self.type)
         self.rect.y = 325
 
-
 class LargeCactus(Obstacle):
     def __init__(self, image):
         self.type = random.randint(0, 2)
         super().__init__(image, self.type)
         self.rect.y = 300
-
 
 class Bird(Obstacle):
     def __init__(self, image):
@@ -163,6 +165,36 @@ class Bird(Obstacle):
         SCREEN.blit(self.image[self.index//5], self.rect)
         self.index += 1
 
+#Vertical Obstacles
+#Note: Also accommodate for the run speed of the tank, so that the obstacles stay horizontally aligned 
+class Obstacle2:
+    def __init__(self, image, type):
+        self.image = image
+        self.type = type
+        self.rect = self.image[self.type].get_rect()
+        self.rect.y = SCREEN_HEIGHT
+
+    def update(self):
+        self.rect.y -= game_speed
+        if self.rect.y < -self.rect.height:
+            obstacles.pop()
+
+    def draw(self, SCREEN):
+        SCREEN.blit(self.image[self.type], self.rect)
+
+class SmallMeteor(Obstacle):
+    def __init__(self, image):
+        self.type = 0
+        self.type = random.randint(0, 2)
+        super().__init__(image, self.type)
+        self.rect.x = 325
+
+class LargeMeteor(Obstacle):
+    def __init__(self, image):
+        self.type = 0
+        self.type = random.randint(0, 2)
+        super().__init__(image, self.type)
+        self.rect.x = 300
 
 def main():
     global game_speed, x_pos_bg, y_pos_bg, points, obstacles
@@ -215,12 +247,17 @@ def main():
         player.update(userInput)
 
         if len(obstacles) == 0:
-            if random.randint(0, 2) == 0:
+            if random.randint(0, 4) == 0:
                 obstacles.append(SmallCactus(SMALL_OBS))
-            elif random.randint(0, 2) == 1:
+            elif random.randint(0, 4) == 1:
                 obstacles.append(LargeCactus(LARGE_OBS))
-            elif random.randint(0, 2) == 2:
+            elif random.randint(0, 4) == 2:
                 obstacles.append(Bird(BIRD))
+            elif random.randint(0, 4) == 3:
+                obstacles.append(SmallMeteor(SMALL_METEOR))
+            elif random.randint(0, 4) == 4:
+                obstacles.append(LargeMeteor(LARGE_METEOR))
+                
 
         for obstacle in obstacles:
             obstacle.draw(SCREEN)
