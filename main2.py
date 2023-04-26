@@ -165,36 +165,38 @@ class Bird(Obstacle):
         SCREEN.blit(self.image[self.index//5], self.rect)
         self.index += 1
 
-#Vertical Obstacles
-#Note: Also accommodate for the run speed of the tank, so that the obstacles stay horizontally aligned 
+# Vertical Obstacles
+#  
+# Have these obstacles come from the top of the screen, and despawn at BG (the track)
+# Obstacles will descend, but maintain the speed of the tank, to make it seem like they are falling from the sky
 class Obstacle2:
     def __init__(self, image, type):
         self.image = image
         self.type = type
         self.rect = self.image[self.type].get_rect()
-        self.rect.y = SCREEN_HEIGHT
+        self.rect.y = 0
 
     def update(self):
-        self.rect.y -= game_speed
-        if self.rect.y < -self.rect.height:
+        self.rect.y += game_speed / 3
+        if self.rect.y > 380:
             obstacles.pop()
 
     def draw(self, SCREEN):
         SCREEN.blit(self.image[self.type], self.rect)
-
-class SmallMeteor(Obstacle):
+        
+class SmallMeteor(Obstacle2):
     def __init__(self, image):
         self.type = 0
         self.type = random.randint(0, 2)
         super().__init__(image, self.type)
-        self.rect.x = 325
+        self.rect.x = 425
 
-class LargeMeteor(Obstacle):
+class LargeMeteor(Obstacle2):
     def __init__(self, image):
         self.type = 0
         self.type = random.randint(0, 2)
         super().__init__(image, self.type)
-        self.rect.x = 300
+        self.rect.x = 400
 
 def main():
     global game_speed, x_pos_bg, y_pos_bg, points, obstacles
