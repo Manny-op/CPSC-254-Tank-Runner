@@ -177,7 +177,7 @@ class Obstacle2:
         self.rect.y = 0
 
     def update(self):
-        self.rect.y += game_speed / 3
+        self.rect.y += game_speed / 4
         if self.rect.y > 380:
             obstacles.pop()
 
