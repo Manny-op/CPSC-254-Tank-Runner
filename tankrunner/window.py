@@ -101,5 +101,10 @@ class WindowGame(Window):
         """Update the game Window."""
         self._tank.move()
         self._obstacle.move()
+        if self._obstacle.does_collide(self._tank._tank):
+            self._game_over = True
+            # Display the game over
+            pygame.time.delay(4000)
+            self._valid = False
         if self._game_over != True:
             self.change_score()

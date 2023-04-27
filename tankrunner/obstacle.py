@@ -31,3 +31,8 @@ class Obstacle():
             self._obstacle_copy.x -= 4
         if self._obstacle_copy.x < 0:
             self._obstacle.x -= 4
+
+    def does_collide(self, player_pos):
+        """Check if the obstacle collides with a player."""
+        if self._obstacle.colliderect(player_pos) or self._obstacle_copy.colliderect(player_pos):
+            return True
