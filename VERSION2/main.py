@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import pygame
 import os
 import random
@@ -313,6 +314,8 @@ def main():
             if player.tankRect.colliderect(obstacle.rect):
                 pygame.time.delay(2000)
                 death_count += 1
+                sound = pygame.mixer.Sound("assets/audio/esm_8_bit_game_over_1_arcade_80s_simple_alert_notification_game.mp3")
+                sound.play()
                 menu(death_count)
 
         background()
