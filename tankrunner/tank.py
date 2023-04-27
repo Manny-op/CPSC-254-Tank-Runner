@@ -13,6 +13,7 @@ class Tank():
         self._tank = pygame.Rect(100, 495, 40, 8)
         self._tank_x_postion = self._tank.x
         self._tank_y_positon = self._tank.y
+        self._jump_audio = pygame.mixer.Sound("assets/audio/zapsplat_cartoon_bounce_jump_short_hop_001_67997.mp3")
 
     def draw(self):
         """Draw the Tank."""
@@ -23,5 +24,10 @@ class Tank():
         key = pygame.key.get_pressed()
         if key[pygame.K_SPACE]:
             self._tank.y -= 5
+            self.play_jump_sound()
         elif self._tank.y != self._tank_y_positon:
             self._tank.y += 5
+
+    def play_jump_sound(self):
+        """Play the jump audio."""
+        pygame.mixer.Sound.play(self._jump_audio)
