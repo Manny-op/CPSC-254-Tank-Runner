@@ -14,44 +14,44 @@ SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 BackgroundColor = pygame.color.Color('#FA5F55')
 MenuColor = pygame.color.Color('#89CFF0')
 
-RUNNING = [pygame.image.load(os.path.join("Assets/Tank", "TankRun1.png")),
-           pygame.image.load(os.path.join("Assets/Tank", "TankRun2.png"))]
-JUMPING = pygame.image.load(os.path.join("Assets/Tank", "TankJump.png"))
-DUCKING = [pygame.image.load(os.path.join("Assets/Tank", "TankDuck1.png")),
-           pygame.image.load(os.path.join("Assets/Tank", "TankDuck2.png"))]
+RUNNING = [pygame.image.load(os.path.join("assets/tank", "TankRun1.png")),
+           pygame.image.load(os.path.join("assets/tank", "TankRun2.png"))]
+JUMPING = pygame.image.load(os.path.join("assets/tank", "TankJump.png"))
+DUCKING = [pygame.image.load(os.path.join("assets/tank", "TankDuck1.png")),
+           pygame.image.load(os.path.join("assets/tank", "TankDuck2.png"))]
 
-SMALL_OBS = [pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus1.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus2.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus3.png"))]
-LARGE_OBS = [pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus1.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus2.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus3.png"))]
+SMALL_OBS = [pygame.image.load(os.path.join("assets/cactus", "SmallCactus1.png")),
+                pygame.image.load(os.path.join("assets/cactus", "SmallCactus2.png")),
+                pygame.image.load(os.path.join("assets/cactus", "SmallCactus3.png"))]
+LARGE_OBS = [pygame.image.load(os.path.join("assets/cactus", "LargeCactus1.png")),
+                pygame.image.load(os.path.join("assets/cactus", "LargeCactus2.png")),
+                pygame.image.load(os.path.join("assets/cactus", "LargeCactus3.png"))]
 
-SMALL_METEOR = [pygame.image.load(os.path.join("Assets/Bear", "Bear0.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear1.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear2.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear3.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear4.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear5.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear6.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear7.png")),]
-LARGE_METEOR = [pygame.image.load(os.path.join("Assets/Bear", "Bear0.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear1.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear2.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear3.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear4.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear5.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear6.png")),
-                pygame.image.load(os.path.join("Assets/Bear", "Bear7.png")),]
+SMALL_METEOR = [pygame.image.load(os.path.join("assets/bear", "Bear0.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear1.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear2.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear3.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear4.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear5.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear6.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear7.png")),]
+LARGE_METEOR = [pygame.image.load(os.path.join("assets/bear", "Bear0.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear1.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear2.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear3.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear4.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear5.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear6.png")),
+                pygame.image.load(os.path.join("assets/bear", "Bear7.png")),]
 
-BIRD = [pygame.image.load(os.path.join("Assets/Bird", "Bird1.png")),
-        pygame.image.load(os.path.join("Assets/Bird", "Bird2.png"))]
+BIRD = [pygame.image.load(os.path.join("assets/bird", "Bird1.png")),
+        pygame.image.load(os.path.join("assets/bird", "Bird2.png"))]
 
-CLOUD = pygame.image.load(os.path.join("Assets/Other", "Cloud.png"))
+CLOUD = pygame.image.load(os.path.join("assets/other", "Cloud.png"))
 
-BG = pygame.image.load(os.path.join("Assets/Other", "Track.png"))
+BG = pygame.image.load(os.path.join("assets/other", "Track.png"))
 
-BULLET = [ pygame.image.load(os.path.join("Assets/Other", "Rocket.png"))]
+BULLET = [ pygame.image.load(os.path.join("assets/other", "Rocket.png"))]
 
 
 class Tank:
