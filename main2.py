@@ -2,6 +2,7 @@ import pygame
 import os
 import random
 import sys
+import math
 pygame.init()
 
 # Global Constants
@@ -35,6 +36,9 @@ BIRD = [pygame.image.load(os.path.join("Assets/Bird", "Bird1.png")),
 CLOUD = pygame.image.load(os.path.join("Assets/Other", "Cloud.png"))
 
 BG = pygame.image.load(os.path.join("Assets/Other", "Track.png"))
+
+PROJECTILE = [ pygame.image.load(os.path.join("Assets/Other", "Rocket.png"))]
+
 
 class Tank:
     X_POS = 80
