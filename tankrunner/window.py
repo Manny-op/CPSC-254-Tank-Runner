@@ -40,7 +40,7 @@ class Window:
         if event.type == pygame.QUIT:
             self._valid = False
         elif event.type == pygame.KEYDOWN and \
-            event.key == pygame.K_ESCAPE:
+            event.key == pygame.K_RETURN:
             self._valid = False
 
 
@@ -72,7 +72,7 @@ class WindowGame(Window):
         self._score = 0
         self._game_over = False
         self._tank = Tank(self._window)
-        self._obstacles = Obstacle(self._window)
+        self._obstacle = Obstacle(self._window)
 
     def draw(self):
         """Draw the game Window."""
@@ -85,7 +85,8 @@ class WindowGame(Window):
         floor = pygame.draw.line(self._window, (0, 0, 0), [0, 500], [800, 500], width=5)
 
         self._tank.draw()
-        self._obstacles.draw()
+        self._obstacle.draw()
+        
 
     def change_score(self):
         """Update the scoreboard."""
@@ -99,6 +100,18 @@ class WindowGame(Window):
     def update(self):
         """Update the game Window."""
         self._tank.move()
-        self._obstacles.move()
+        self._obstacle.move()
+        if self._obstacle.does_collide(self._tank._tank):
+            self._game_over = True
+            # Display the game over
+            pygame.time.delay(4000)
+            # will you like to play again message
+            # if no then:
+                #self._valid = False
+            # else:
+            # call obstacle function to reset positions
+            self._obstacle.reset_obstacles()
+            self._score = 0
+            self._game_over = False
         if self._game_over != True:
             self.change_score()
