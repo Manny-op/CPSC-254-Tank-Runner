@@ -10,11 +10,11 @@ SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
 SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-RUNNING = [pygame.image.load(os.path.join("Assets/Dino", "DinoRun1.png")),
-           pygame.image.load(os.path.join("Assets/Dino", "DinoRun2.png"))]
-JUMPING = pygame.image.load(os.path.join("Assets/Dino", "DinoJump.png"))
-DUCKING = [pygame.image.load(os.path.join("Assets/Dino", "DinoDuck1.png")),
-           pygame.image.load(os.path.join("Assets/Dino", "DinoDuck2.png"))]
+RUNNING = [pygame.image.load(os.path.join("Assets/Tank", "TankRun1.png")),
+           pygame.image.load(os.path.join("Assets/Tank", "TankRun2.png"))]
+JUMPING = pygame.image.load(os.path.join("Assets/Tank", "TankJump.png"))
+DUCKING = [pygame.image.load(os.path.join("Assets/Tank", "TankDuck1.png")),
+           pygame.image.load(os.path.join("Assets/Tank", "TankDuck2.png"))]
 
 SMALL_OBS = [pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus1.png")),
                 pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus2.png")),
