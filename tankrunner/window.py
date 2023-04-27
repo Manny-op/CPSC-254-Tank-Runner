@@ -51,6 +51,8 @@ class WindowTitle(Window):
         """Initialize WindowTitle."""
         super().__init__(window)
         self._game_title = title
+        self._play = "Press return key to play"
+        self._instructions = "Press spacebar to jump"
 
     def draw(self):
         """Draw the WindowTitle."""
@@ -61,7 +63,15 @@ class WindowTitle(Window):
         render_window = window_font.render(self._game_title, True, (0, 0, 0))
         position = render_window.get_rect(center=(width/2, 100))
         self._window.blit(render_window, position)
-
+        
+        play_font = pygame.font.Font(font, 20)
+        render_play =  play_font.render(self._play, True, (255, 255, 255))
+        play_position = render_play.get_rect(center=(width/2, 400))
+        self._window.blit(render_play, play_position)
+        play_font = pygame.font.Font(font, 20)
+        render_play =  play_font.render(self._instructions, True, (255, 255, 255))
+        play_position = render_play.get_rect(center=(width/2, 430))
+        self._window.blit(render_play, play_position)
 
 class WindowGame(Window):
     """A subclass of Window that represents the game Window of TankRunner."""
