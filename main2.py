@@ -50,7 +50,7 @@ CLOUD = pygame.image.load(os.path.join("Assets/Other", "Cloud.png"))
 
 BG = pygame.image.load(os.path.join("Assets/Other", "Track.png"))
 
-PROJECTILE = [ pygame.image.load(os.path.join("Assets/Other", "Rocket.png"))]
+BULLET = [ pygame.image.load(os.path.join("Assets/Other", "Rocket.png"))]
 
 
 class Tank:
@@ -125,6 +125,22 @@ class Tank:
     def draw(self, SCREEN):
         SCREEN.blit(self.image, (self.tankRect.x, self.tankRect.y))
 
+"""
+class Bullet:
+    def __init__(self, x, y):
+        self.image = BULLET
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+        self.vel = 10
+
+    def update(self):
+        self.rect.x += self.vel
+
+    def draw(self, SCREEN):
+        SCREEN.blit(self.image, self.rect)
+"""
+        
 class Cloud:
     def __init__(self):
         self.x = SCREEN_WIDTH + random.randint(800, 1000)
@@ -227,6 +243,7 @@ def main():
     points = 0
     font = pygame.font.Font('freesansbold.ttf', 20)
     obstacles = []
+    bullets = []
     death_count = 0
 
     def score():
@@ -258,6 +275,18 @@ def main():
                     run = False
                     pygame.quit()
                     sys.exit()
+            # bullet shot from tank (triggered by q key) that evaporates obstacles upon impact, granting 200 points each
+            """
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    bullets.append(Bullet(BULLET))
+                    for bullet in bullets:
+                        bullet.draw(SCREEN)
+                        bullet.update()
+                        if bullet.rect.colliderect(obstacle.rect):
+                            obstacles.pop()
+                            points += 500
+            """
 
         SCREEN.fill(BackgroundColor)
         userInput = pygame.key.get_pressed()
