@@ -40,7 +40,7 @@ class Window:
         if event.type == pygame.QUIT:
             self._valid = False
         elif event.type == pygame.KEYDOWN and \
-            event.key == pygame.K_ESCAPE:
+            event.key == pygame.K_RETURN:
             self._valid = False
 
 
@@ -105,6 +105,13 @@ class WindowGame(Window):
             self._game_over = True
             # Display the game over
             pygame.time.delay(4000)
-            self._valid = False
+            # will you like to play again message
+            # if no then:
+                #self._valid = False
+            # else:
+            # call obstacle function to reset positions
+            self._obstacle.reset_obstacles()
+            self._score = 0
+            self._game_over = False
         if self._game_over != True:
             self.change_score()

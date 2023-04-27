@@ -12,7 +12,6 @@ class Obstacle():
         self._color = (255, 255, 255)
         self._obstacle = pygame.Rect(800, 495, 40, 8)
         self._obstacle_copy = pygame.Rect(800, 495, 40, 8)
-        self._list = []
 
     def draw(self):
         """Draw the Tank."""
@@ -36,3 +35,8 @@ class Obstacle():
         """Check if the obstacle collides with a player."""
         if self._obstacle.colliderect(player_pos) or self._obstacle_copy.colliderect(player_pos):
             return True
+
+    def reset_obstacles(self):
+        """Reset the obstacles to their start position."""
+        self._obstacle = pygame.Rect(800, 495, 40, 8)
+        self._obstacle_copy = pygame.Rect(800, 495, 40, 8)
