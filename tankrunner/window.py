@@ -83,6 +83,7 @@ class WindowGame(Window):
         self._game_over = False
         self._tank = Tank(self._window)
         self._obstacle = Obstacle(self._window)
+        self._replay = "Would you like to play again?: y or n"
 
     def draw(self):
         """Draw the game Window."""
@@ -104,8 +105,18 @@ class WindowGame(Window):
         font = pygame.font.get_default_font()
         score_font = pygame.font.Font(font, 20)
         render_score = score_font.render(str(self._score), True, (0, 0, 0))
-        positon = (750, 25)
+        positon = (300, 400)
         self._window.blit(render_score, positon)
+
+    def play_again(self):
+        """Message to let player know if they would like to play again."""
+        font = pygame.font.get_default_font()
+        (width, height) = self._window.get_size()
+        play_font = pygame.font.Font(font, 20)
+        render_play =  play_font.render(self._replay, True, (255, 255, 255))
+        play_position = render_play.get_rect(center=(width/2, 400))
+        self._window.blit(render_play, play_position)
+        pygame.display.update()
 
     def update(self):
         """Update the game Window."""
@@ -115,14 +126,19 @@ class WindowGame(Window):
             self._game_over = True
             self._obstacle.play_sound()
             # Display the game over
+            self.play_again()
             pygame.time.delay(4000)
             # will you like to play again message
             # if no then:
                 #self._valid = False
             # else:
             # call obstacle function to reset positions
-            self._obstacle.reset_obstacles()
-            self._score = 0
-            self._game_over = False
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_n:
+                    self._valid = False
+                else:
+                    self._obstacle.reset_obstacles()
+                    self._score = 0
+                    self._game_over = False
         if self._game_over != True:
             self.change_score()
