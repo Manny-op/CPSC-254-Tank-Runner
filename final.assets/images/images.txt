@@ -1,3 +1,0 @@
-The assets/images directory will be used to store any image files.
-
-** This text file will be removed once we start adding files **
