@@ -1,0 +1,6 @@
+1. Difficulty creating a shooting mechanic, prevented concepts such as ammunation and power ups (inventory)
+2. Difficulty rendering multiple sentences
+3. Power ups not implemented. Can be done by creating class(es) similar to obstacules
+4. No audio, can be easily implemented using some python libraries
+5. Custom player models is possible, but more models would be needed
+6. Aerial obstacules do not have any ai, they just move in a straight line
