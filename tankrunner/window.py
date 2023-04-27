@@ -113,6 +113,7 @@ class WindowGame(Window):
         self._obstacle.move()
         if self._obstacle.does_collide(self._tank._tank):
             self._game_over = True
+            self._obstacle.play_sound()
             # Display the game over
             pygame.time.delay(4000)
             # will you like to play again message
