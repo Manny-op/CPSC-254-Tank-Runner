@@ -10,6 +10,9 @@ SCREEN_HEIGHT = 600
 SCREEN_WIDTH = 1100
 SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+BackgroundColor = pygame.color.Color('#FA5F55')
+MenuColor = pygame.color.Color('#89CFF0')
+
 RUNNING = [pygame.image.load(os.path.join("Assets/Tank", "TankRun1.png")),
            pygame.image.load(os.path.join("Assets/Tank", "TankRun2.png"))]
 JUMPING = pygame.image.load(os.path.join("Assets/Tank", "TankJump.png"))
@@ -23,12 +26,22 @@ LARGE_OBS = [pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus1.png")
                 pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus2.png")),
                 pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus3.png"))]
 
-SMALL_METEOR = [pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus1.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus2.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "SmallCactus3.png"))]
-LARGE_METEOR = [pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus1.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus2.png")),
-                pygame.image.load(os.path.join("Assets/Cactus", "LargeCactus3.png"))]
+SMALL_METEOR = [pygame.image.load(os.path.join("Assets/Bear", "Bear0.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear1.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear2.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear3.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear4.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear5.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear6.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear7.png")),]
+LARGE_METEOR = [pygame.image.load(os.path.join("Assets/Bear", "Bear0.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear1.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear2.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear3.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear4.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear5.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear6.png")),
+                pygame.image.load(os.path.join("Assets/Bear", "Bear7.png")),]
 
 BIRD = [pygame.image.load(os.path.join("Assets/Bird", "Bird1.png")),
         pygame.image.load(os.path.join("Assets/Bird", "Bird2.png"))]
@@ -246,7 +259,7 @@ def main():
                     pygame.quit()
                     sys.exit()
 
-        SCREEN.fill((255, 255, 255))
+        SCREEN.fill(BackgroundColor)
         userInput = pygame.key.get_pressed()
 
         player.draw(SCREEN)
@@ -288,7 +301,7 @@ def menu(death_count):
     global points
     run = True
     while run:
-        SCREEN.fill((255, 255, 255))
+        SCREEN.fill(MenuColor)
         font = pygame.font.Font('freesansbold.ttf', 30)
 
         if death_count == 0:
